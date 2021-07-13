@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="src/css/tailwind.css">
   <title>Todo app</title>
 </head>
-<body class="font-josefin light_bg">
+<body class="font-josefin light_bg" onload="todosView()">
   <div class="container mx-auto w-2/5">
     <p class="uppercase text-4xl font-extrabold text-white tracking-widest mt-32">T o d o</p>
     <div>
@@ -16,27 +16,22 @@
         <input type="text" class="ml-6 text-lg w-full focus:outline-none" name="description" id="description" placeholder="Create a new todo...">
       </form>
     </div>
-    <div class="listTodos w-full bg-white rounded-md mt-5 shadow-lg">
-      <div class="todos grid grid-cols-4 p-5 border-b-2">
-        <div class="flex justify-items-start col-span-3">
-          <button class="butons"></button>
-          <p class="ml-6 text-lg w-full">Nueva todo si que si</p>
-        </div>
-        <div class="equis hidden">
-          <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg></button>
-        </div>
+    <div class=" w-full bg-white rounded-md mt-5 shadow-lg">
+      <div class="listTodos">
       </div>
-      <div class="grid grid-cols-3 p-5">
-        <p>5 items left</p>
-        <form class="px-6 flex justify-between">
-          <label for="all">All</label>
-          <input type="radio" class="hidden" name="filter" id="all">
-          <label for="active">Active</label>
+      <div id="footer" class="hidden grid-cols-3 p-5">
+        <p class="items_left text-dark_grayish_blue"></p>
+        <form class="px-6 flex justify-between" id="form_2">
+          <label for="all"  class="labels_filter cursor-pointer font-bold label_active">All</label>
+          <input type="radio" class="hidden" name="filter" id="all"  checked="checked">
+          <label for="active" class="labels_filter cursor-pointer font-bold label_not_active">Active</label>
           <input type="radio" class="hidden" name="filter" id="active">
-          <label for="completed">Completed</label>
+          <label for="completed" class="labels_filter cursor-pointer font-bold label_not_active">Completed</label>
           <input type="radio" class="hidden" name="filter" id="completed">
         </form>   
-        <p class="text-right">Clear Completed</p>       
+        <div>
+          <button onclick="clear_completed()" class="float-right text-dark_grayish_blue hover:text-verydark_blue_grayish cursor-pointer">Clear Completed</button>       
+        </div>
       </div>
     </div>
   </div>
