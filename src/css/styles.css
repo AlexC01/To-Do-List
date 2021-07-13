@@ -10,13 +10,20 @@
     height: 800px;
 }
 
+.dark_bg{
+    background: #181824 url(../images/bg-desktop-dark.jpg) no-repeat;
+    background-size: 100%;
+    width: 100%;
+    height: 800px;
+}
+
 .back_col{
     background: rgb(87,221,255);
     background: linear-gradient(65deg, rgba(87,221,255,1) 0%, rgba(192,88,243,1) 100%);
 }
 
 .butons{
-    @apply w-8 h-7 border-2 rounded-full lg:mx-0 focus:outline-none;
+    @apply w-8 h-7 border-2 dark:border-gray-500 rounded-full lg:mx-0 focus:outline-none;
 }
 
 .butons_completed{
@@ -45,6 +52,6 @@
 }
 
 .label_not_active{
-    @apply text-dark_grayish_blue hover:text-black;
+    @apply text-dark_grayish_blue hover:text-black dark:hover:text-white;
 }
 
