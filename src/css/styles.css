@@ -3,9 +3,22 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    background: blue url(../images/bg-desktop-light.jpg) no-repeat;
-    background-size: auto 50%;
+.light_bg{
+    background: white url(../images/bg-desktop-light.jpg) no-repeat;
+    background-size: 100%;
     width: 100%;
     height: 800px;
+}
+
+.back_col{
+    background-color: linear-gradient(to right, #57ddff, #c058f3);
+}
+
+.butons{
+    @apply w-6 h-6 border-2 back_col rounded-full lg:mx-0 focus:outline-none;
+}
+
+.todos:hover > .equis{
+    display: grid;
+    justify-items: end;
 }
