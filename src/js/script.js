@@ -7,48 +7,36 @@ const items_left = document.querySelector('.items_left');
 const labels_filter = document.querySelectorAll('.labels_filter');
 const light = document.getElementById('light');
 const dark = document.getElementById('dark');
+let darkMode = localStorage.getItem('darkMode');
 
-const change_theme = () =>{
-    if(localStorage.getItem('theme') == 'dark'){
-        document.documentElement.classList.add('dark');
-        dark.classList.remove('block');
-        dark.classList.add('hidden');
-        light.classList.add('block');
-        light.classList.remove('hidden');
-        document.body.classList.remove('light_bg');
-        document.body.classList.add('dark_bg');
-    }else{
-        document.documentElement.classList.remove('dark');
-        document.body.classList.add('light_bg');
-        document.body.classList.remove('dark_bg');
-    }
+const enableDarkMode = () => {
+    document.documentElement.classList.add('dark');
+    document.body.classList.remove('light_bg');
+    document.body.classList.add('dark_bg');
+    dark.classList.add('hidden');
+    light.classList.remove('hidden');
+    localStorage.setItem('darkMode', 'enabled'); 
+};
+
+const disableDarkMode = () => {
+    document.documentElement.classList.remove('dark');
+    document.body.classList.add('light_bg');
+    document.body.classList.remove('dark_bg');
+    dark.classList.remove('hidden');
+    light.classList.add('hidden');
+    localStorage.setItem('darkMode', null); 
+}
+
+if (darkMode === 'enabled'){
+    enableDarkMode();
 }
 
 const theme = () => {
-    if(localStorage.getItem('theme') == 'dark'){
-        localStorage.setItem('theme', 'light');
-        light.classList.remove('block');
-        light.classList.add('hidden');
-        dark.classList.add('block');
-        dark.classList.remove('hidden');
-        change_theme();
-    }else{
-        localStorage.setItem('theme', 'dark');
-        dark.classList.remove('block');
-        dark.classList.add('hidden');
-        light.classList.add('block');
-        light.classList.remove('hidden');
-        change_theme();
-    }
-};
-
-window.onload = function(){
-    if(localStorage.getItem('theme')){
-        change_theme();
-        todosView();
-    }else{
-        localStorage.setItem('theme', 'light');
-        todosView();
+    darkMode = localStorage.getItem('darkMode');
+    if (darkMode !== 'enabled'){
+        enableDarkMode();
+    } else{
+        disableDarkMode();
     }
 }
 
