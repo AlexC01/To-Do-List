@@ -3,9 +3,48 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    background: blue url(../images/bg-desktop-light.jpg) no-repeat;
-    background-size: auto 50%;
+.light_bg{
+    background: white url(../images/bg-desktop-light.jpg) no-repeat;
+    background-size: 100%;
     width: 100%;
     height: 800px;
 }
+
+.back_col{
+    background: rgb(87,221,255);
+    background: linear-gradient(65deg, rgba(87,221,255,1) 0%, rgba(192,88,243,1) 100%);
+}
+
+.butons{
+    @apply w-8 h-7 border-2 rounded-full lg:mx-0 focus:outline-none;
+}
+
+.butons_completed{
+    @apply w-8 h-7 back_col rounded-full lg:mx-0 focus:outline-none;
+}
+
+.todos_classes{
+    @apply todos grid grid-cols-4 p-5 border-b-2;
+}
+
+.div_2{
+    @apply flex justify-items-start col-span-3;
+}
+
+.description_todos{
+    @apply ml-6 text-lg w-full;
+}
+
+.todos:hover > .equis{
+    display: grid;
+    justify-items: end;
+}
+
+.label_active{
+    @apply text-bright_blue; 
+}
+
+.label_not_active{
+    @apply text-dark_grayish_blue hover:text-black;
+}
+

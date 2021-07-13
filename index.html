@@ -7,7 +7,34 @@
   <link rel="stylesheet" href="src/css/tailwind.css">
   <title>Todo app</title>
 </head>
-<body class="font-josefin">
- 
+<body class="font-josefin light_bg" onload="todosView()">
+  <div class="container mx-auto w-2/5">
+    <p class="uppercase text-4xl font-extrabold text-white tracking-widest mt-32">T o d o</p>
+    <div>
+      <form id="formNew" class="w-full bg-white flex justify-items-start p-5 rounded-md mt-10">
+        <button class="butons"></button>
+        <input type="text" class="ml-6 text-lg w-full focus:outline-none" name="description" id="description" placeholder="Create a new todo...">
+      </form>
+    </div>
+    <div class=" w-full bg-white rounded-md mt-5 shadow-lg">
+      <div class="listTodos">
+      </div>
+      <div id="footer" class="hidden grid-cols-3 p-5">
+        <p class="items_left text-dark_grayish_blue"></p>
+        <form class="px-6 flex justify-between" id="form_2">
+          <label for="all"  class="labels_filter cursor-pointer font-bold label_active">All</label>
+          <input type="radio" class="hidden" name="filter" id="all"  checked="checked">
+          <label for="active" class="labels_filter cursor-pointer font-bold label_not_active">Active</label>
+          <input type="radio" class="hidden" name="filter" id="active">
+          <label for="completed" class="labels_filter cursor-pointer font-bold label_not_active">Completed</label>
+          <input type="radio" class="hidden" name="filter" id="completed">
+        </form>   
+        <div>
+          <button onclick="clear_completed()" class="float-right text-dark_grayish_blue hover:text-verydark_blue_grayish cursor-pointer">Clear Completed</button>       
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="src/js/script.js"></script>
 </body>
 </html>
