@@ -3,6 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .light_bg{
     background: white url(../images/bg-desktop-light.jpg) no-repeat;
     background-size: 100%;
@@ -28,6 +29,38 @@
 
 .butons_completed{
     @apply w-8 h-7 back_col rounded-full lg:mx-0 focus:outline-none;
+}
+
+.check_style{
+    margin-left: 9px;
+}
+
+@media only screen and (max-width: 375px){
+    .light_bg{
+        background: white url(../images/bg-mobile-light.jpg) no-repeat;
+        background-size: 100%;
+        width: 100%;
+        height: 800px;
+    }
+    
+    .dark_bg{
+        background: #181824 url(../images/bg-mobile-dark.jpg) no-repeat;
+        background-size: 100%;
+        width: 100%;
+        height: 800px;
+    }
+
+    .butons{
+        @apply w-6 h-5 border-2 dark:border-gray-500 rounded-full lg:mx-0 focus:outline-none;
+    }
+
+    .butons_completed{
+        @apply w-7 h-5 back_col rounded-full lg:mx-0 focus:outline-none;
+    }
+
+    .check_style{
+        margin-left: 6px;
+    }
 }
 
 .todos_classes{

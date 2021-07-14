@@ -1,5 +1,4 @@
 const form = document.getElementById('formNew');
-const form_2 = document.getElementById('form_2');
 const description = document.getElementById('description');
 const todos_list = document.querySelector('.listTodos');
 const footercard = document.getElementById('footer');
@@ -13,7 +12,6 @@ Sortable.create(todos_list, {
     animation: 150,
     chosenClass: 'selected',
     dragClass: 'drag',
-
     store: {
         set: (sortable) => {
             const orden = sortable.toArray();
@@ -153,9 +151,9 @@ const todosView = () => {
                 <div data-id="${i}" class="todos cursor-move grid grid-cols-4 p-5 border-b-2 dark:border-gray-500">
                     <div class="flex justify-items-start col-span-3">
                         <button onclick="changeStatus(${i})" class="butons"></button>
-                        <p class="ml-6 text-lg w-full dark:text-verylight_grayishblue">${todos[i].description}</p>
+                        <p class="ml-6 text-base md:text-lg w-full dark:text-verylight_grayishblue">${todos[i].description}</p>
                     </div>
-                    <div class="equis hidden">
+                    <div class="equis grid justify-end lg:hidden">
                         <button onclick="deleteTodo(${i})"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg></button>
                     </div>
                 </div>
@@ -165,10 +163,10 @@ const todosView = () => {
                 `
                 <div data-id="${i}" class="todos cursor-move grid grid-cols-4 p-5 border-b-2 completed dark:border-gray-500">
                     <div class="flex justify-items-start col-span-3">
-                        <button class="butons_completed" onclick="changeStatus(${i})"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="9" style="margin-left: 9px;"><path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg></button>
-                        <p class="ml-6 text-lg w-full line-through text-light_grayishblue dark:text-dark_grayish_blue">${todos[i].description}</p>
+                        <button class="butons_completed" onclick="changeStatus(${i})"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="9" class="check_style"><path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg></button>
+                        <p class="ml-6 text-base md:text-lg w-full line-through text-light_grayishblue dark:text-dark_grayish_blue">${todos[i].description}</p>
                     </div>
-                    <div class="equis hidden">
+                    <div class="equis grid justify-end lg:hidden">
                         <button onclick="deleteTodo(${i})"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg></button>
                     </div>
                 </div>
@@ -193,7 +191,6 @@ const resetclasses = () => {
 
 const addTodo = e => {
     if (description.value != ""){
-        form_2.reset();
         resetclasses();
         const todo = {
             description: description.value,
