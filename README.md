@@ -22,3 +22,4 @@ If you want to test it in real time: https://alexc01.github.io/To-Do-List/
 - CSS
 - TailwindCSS
 - Javascript
+- Javascript library: SortableJS
