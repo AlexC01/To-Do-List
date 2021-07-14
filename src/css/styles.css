@@ -55,3 +55,10 @@
     @apply text-dark_grayish_blue hover:text-black dark:hover:text-white;
 }
 
+.selected{
+    transform: scale(1.02) rotate(-1deg);
+}
+
+.drag{
+    opacity: 0;
+}

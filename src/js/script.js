@@ -9,6 +9,26 @@ const light = document.getElementById('light');
 const dark = document.getElementById('dark');
 let darkMode = localStorage.getItem('darkMode');
 
+Sortable.create(todos_list, {
+    animation: 150,
+    chosenClass: 'selected',
+    dragClass: 'drag',
+
+    store: {
+        set: (sortable) => {
+            const orden = sortable.toArray();
+            let todo = JSON.parse(localStorage.getItem('todos'));
+            let todos = [];
+            for(let i in orden){
+                todos.push(todo[orden[i]]);
+            }
+            localStorage.setItem('todos', JSON.stringify(todos));
+            todosView();
+        },
+
+    }
+});
+
 const enableDarkMode = () => {
     document.documentElement.classList.add('dark');
     document.body.classList.remove('light_bg');
@@ -130,7 +150,7 @@ const todosView = () => {
                 cont++;
                 todos_list.innerHTML += 
                 `
-                <div class="todos grid grid-cols-4 p-5 border-b-2 dark:border-gray-500">
+                <div data-id="${i}" class="todos cursor-move grid grid-cols-4 p-5 border-b-2 dark:border-gray-500">
                     <div class="flex justify-items-start col-span-3">
                         <button onclick="changeStatus(${i})" class="butons"></button>
                         <p class="ml-6 text-lg w-full dark:text-verylight_grayishblue">${todos[i].description}</p>
@@ -143,7 +163,7 @@ const todosView = () => {
             }else{
                 todos_list.innerHTML += 
                 `
-                <div class="todos grid grid-cols-4 p-5 border-b-2 completed dark:border-gray-500">
+                <div data-id="${i}" class="todos cursor-move grid grid-cols-4 p-5 border-b-2 completed dark:border-gray-500">
                     <div class="flex justify-items-start col-span-3">
                         <button class="butons_completed" onclick="changeStatus(${i})"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="9" style="margin-left: 9px;"><path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg></button>
                         <p class="ml-6 text-lg w-full line-through text-light_grayishblue dark:text-dark_grayish_blue">${todos[i].description}</p>
