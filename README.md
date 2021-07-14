@@ -15,3 +15,10 @@ This a Todo App where people can do the following things:
 - Drag and drop to reorder items on the list
 
 If you want to test it in real time: https://alexc01.github.io/To-Do-List/
+
+## Built with
+
+- Semantic HTML5
+- CSS
+- TailwindCSS
+- Javascript
